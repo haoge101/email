@@ -34,4 +34,4 @@ jobs:
           ADDRESS: ${{ secrets.ADDRESS }}
           PSWD: ${{ secrets.PASSWORD }}
       run: |
-        python3 xiaoshuo.py ADDRESS PSWD
+        python3 xiaoshuo.py env.ADDRESS env.PSWD
