@@ -84,7 +84,7 @@ book_url = 'https://www.ibiquge.la/9/9419/'
 # 获取章节列表
 chapter_url_list = get_chapter_url_list(book_url)
 latestChapter = len(chapter_url_list)
-with open('/static/chapterdata.json', 'r') as f:
+with open('chapterdata.json', 'r') as f:
     data = json.load(f)
 lastChapter = data['Number']
 fileExist=False
@@ -92,7 +92,7 @@ if (latestChapter > lastChapter):
     fileExist = True
     chapter_url_list = chapter_url_list[lastChapter - 1:]
     # 存储路径
-    file_name = '/static/' + str(datetime.date.today()) + '.txt'
+    file_name = str(datetime.date.today()) + '.txt'
     with open(file_name, 'w', encoding='utf-8') as f:
 
         for index, chapter_url in enumerate(chapter_url_list, start=1):
@@ -106,7 +106,7 @@ if (latestChapter > lastChapter):
     latestChapterJson = {
         'Number': latestChapter,
     }
-    with open('/static/chapterdata.json', 'w') as f:
+    with open('chapterdata.json', 'w') as f:
         json.dump(latestChapterJson, f)
         
 # 设置服务器所需信息
