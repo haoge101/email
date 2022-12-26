@@ -188,7 +188,7 @@ if result.status_code==200:
         count=0
         code=0
         while (code!=1 and count<15):
-            url = sys.argv[7]%(newsId)
+            url = (sys.argv[7])%(newsId)
             result = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
             result=json.loads(result.text)
             code=int(result['code'])
