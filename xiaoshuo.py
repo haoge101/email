@@ -107,6 +107,7 @@ if (latestChapter > lastChapter):
     latestChapterJson = {
         'Number': latestChapter,
     }
+    print(latestChapterJson)
     with open('chapterdata.json', 'w') as f:
         json.dump(latestChapterJson, f)
         
