@@ -131,7 +131,7 @@ message['To'] = toEmailAddrs[0]
 
 #股票1
 stock1='访问失败'
-url = 'http://web.juhe.cn:8080/finance/stock/hs?gid=sh600703&key=9615702e4482efbeac283c4a1d7919cc'   # 目标网站，？wd=后面为参数，可以使用params，不过看起来不舒服
+url = sys.argv[3]   # 目标网站，？wd=后面为参数，可以使用params，不过看起来不舒服
 result = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
 if result.status_code==200:
     result=json.loads(result.text)
@@ -147,7 +147,7 @@ if result.status_code==200:
 
 #A股行情
 stock='访问失败'
-url = 'http://web.juhe.cn:8080/finance/stock/hs?gid=0&key=9615702e4482efbeac283c4a1d7919cc&type=0'
+url = sys.argv[4]
 result = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
 if result.status_code==200:
     result=json.loads(result.text)
@@ -161,7 +161,7 @@ if result.status_code==200:
 
 #美金汇率
 exchangerate='访问失败'
-url = 'http://op.juhe.cn/onebox/exchange/query?key=19d529117f0981090cb5ba2fb37fd8ba'
+url = sys.argv[5]
 result = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
 if result.status_code==200:
     result=json.loads(result.text)
@@ -179,7 +179,7 @@ message.attach(MIMEText(stock + '\n\n' + stock1 + '\n\n' +  exchangerate, 'plain
 
 #每日要闻
 content=''
-url = 'https://www.mxnzp.com/api/news/list?typeId=518&page=1&app_id=pvljeormloijom82&app_secret=RHlncVEzd2FBVjM5d2dESDJ1ZXEwZz09'   # 目标网站，？wd=后面为参数，可以使用params，不过看起来不舒服
+url = sys.argv[6]   # 目标网站，？wd=后面为参数，可以使用params，不过看起来不舒服
 result = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
 if result.status_code==200:
     result=json.loads(result.text)
@@ -189,7 +189,7 @@ if result.status_code==200:
         count=0
         code=0
         while (code!=1 and count<15):
-            url = 'https://www.mxnzp.com/api/news/details?newsId=%s&app_id=pvljeormloijom82&app_secret=RHlncVEzd2FBVjM5d2dESDJ1ZXEwZz09'%(newsId)
+            url = sys.argv[7]%(newsId)
             result = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
             result=json.loads(result.text)
             code=int(result['code'])
