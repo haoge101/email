@@ -34,13 +34,13 @@ jobs:
         python3 xiaoshuo.py ${{ secrets.ADDRESS }} ${{ secrets.PASSWORD }}
     - name: Upload to this repo
       run: |
-        if [ -z "$(git status --porcelain)" ]
+        if [[ -n $(git diff --stat)  ]]
         then
-            echo "nothing to update."
-        else
             git config --global user.name "haoge101" # 改成Github账号用户名
             git config --global user.email "haoge101@163.com" # 改成GitHub账号的邮箱
             git add "chapterdata.json"
             git commit -m "upload chapterdata"
-            git push -u origin main && echo "Git Pushed Origin" # runner改成存放图片的分支
+            git push -u origin main && echo "Git Pushed Origin" # runner改成存放图片的分支    
+        else
+            echo "nothing to update." 
         fi
