@@ -84,6 +84,7 @@ book_url = 'https://www.ibiquge.la/9/9419/'
 # 获取章节列表
 chapter_url_list = get_chapter_url_list(book_url)
 latestChapter = len(chapter_url_list)
+print(latestChapter)
 with open('chapterdata.json', 'r') as f:
     data = json.load(f)
 lastChapter = data['Number']
