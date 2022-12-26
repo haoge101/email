@@ -1,4 +1,3 @@
-from sys import stdout
 from typing import Dict, List
 import requests
 import sys
@@ -102,7 +101,6 @@ if (latestChapter > lastChapter):
             f.write('标题: '+item['title']+'\n\n')
             #f.write('原文链接: '+item['url']+'\n')
             f.write(item['content']+'\n')
-            stdout.write(f'进度:{index}/{len(chapter_url_list)}\r')
     print('生成文件:',file_name)
 
     latestChapterJson = {
