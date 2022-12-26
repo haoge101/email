@@ -217,7 +217,7 @@ if fileExist:
 
 # 登录并发送邮件
 try:
-    server = smtplib.SMTP('smtp.263.net')  # 163邮箱服务器地址，端口默认为25
+    server = smtplib.SMTP('smtp-mail.outlook.com',587)  # 163邮箱服务器地址，端口默认为25
     server.login(fromEmailAddr, password)
     server.sendmail(fromEmailAddr, toEmailAddrs, message.as_string())
     print('success')
