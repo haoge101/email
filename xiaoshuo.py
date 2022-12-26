@@ -87,6 +87,7 @@ latestChapter = len(chapter_url_list)
 with open('chapterdata.json', 'r') as f:
     data = json.load(f)
 lastChapter = data['Number']
+print(lastChapter)
 fileExist=False
 if (latestChapter > lastChapter):
     fileExist = True
