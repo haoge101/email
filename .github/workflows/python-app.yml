@@ -4,10 +4,6 @@
 name: Python application
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   schedule:
     - cron: '0 0 * * *' 
   workflow_dispatch:
@@ -31,7 +27,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Step 2 - GitHub Action if statement (true)
       run: |
-        python3 xiaoshuo.py ${{ secrets.ADDRESS }} ${{ secrets.PASSWORD }}
+        python3 xiaoshuo.py ${{ secrets.ADDRESS }} ${{ secrets.PASSWORD }} ${{ secrets.STOCK1 }} ${{ secrets.STOCKA }} ${{ secrets.RATE }} ${{ secrets.NEWS }} ${{ secrets.NEWS1 }}
     - name: Upload to this repo
       run: |
         if [[ -n $(git diff --stat)  ]]
