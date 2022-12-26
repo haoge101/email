@@ -38,6 +38,5 @@ jobs:
       env: 
           ADDRESS: ${{ secrets.ADDRESS }}
           PSWD: ${{ secrets.PASSWORD }}
-    - name: Test with pytest
       run: |
         python3 xiaoshuo.py ADDRESS PSWD
