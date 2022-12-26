@@ -130,6 +130,7 @@ message['To'] = toEmailAddrs[0]
 #股票1
 stock1='访问失败'
 url = sys.argv[3]   # 目标网站，？wd=后面为参数，可以使用params，不过看起来不舒服
+print(url)
 result = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
 if result.status_code==200:
     result=json.loads(result.text)
