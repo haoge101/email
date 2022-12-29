@@ -176,7 +176,7 @@ if result.status_code==200:
                 time=result['result']['update'] #日期时间
                 exchangerate = '时间： %s\n名称： %s\n现汇买入价： %s元\n中间价： %s元'%(time, name, float(Per)/100, float(centralrate)/100)
 
-message.attach(MIMEText(stock + '\n\n' + stock1 + '\n\n' +  exchangerate, 'plain', 'utf-8'))
+message.attach(MIMEText('尊敬的公司领导：' + '\n\n' + stock + '\n\n' + stock1 + '\n\n' +  exchangerate, 'plain', 'utf-8'))
 
 #每日要闻
 content=''
