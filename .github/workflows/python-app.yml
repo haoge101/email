@@ -5,8 +5,7 @@ name: Python application
 
 on:
   schedule:
-    - cron: '35 07 * * *' 
-    - cron: '37 09 * * *'
+    - cron: '48 07,09 * * *' 
   workflow_dispatch:
 
 
@@ -34,7 +33,7 @@ jobs:
         then
             git config --global user.name "haoge101" # 改成Github账号用户名
             git config --global user.email "haoge101@163.com" # 改成GitHub账号的邮箱
-            git add "chapterdata.json"
+            git add .
             git commit -m "upload chapterdata"
             git push -u origin main && echo "Git Pushed Origin" # runner改成存放图片的分支    
         else
