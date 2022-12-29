@@ -217,14 +217,24 @@ if fileExist:
     message.attach(att1)
     # ---------------------------------------------------------------------
 
-# 登录并发送邮件
-try:
-    #server = smtplib.SMTP('smtp-mail.outlook.com',587)  # 163邮箱服务器地址，端口默认为25
-    #server.starttls()
-    server = smtplib.SMTP('smtp.263.net') 
-    server.login(fromEmailAddr, password)
-    server.sendmail(fromEmailAddr, toEmailAddrs, message.as_string())
-    print('success')
-    server.quit()
-except smtplib.SMTPException as e:
-    print("error:", e)
+with open('emaildate.json', 'r') as f:
+    data = json.load(f)
+emialDate = data['Date']
+
+if emialDate != str(datetime.date.today()):
+    # 登录并发送邮件
+    try:
+        #server = smtplib.SMTP('smtp-mail.outlook.com',587)  # 163邮箱服务器地址，端口默认为25
+        #server.starttls()
+        server = smtplib.SMTP('smtp.263.net') 
+        server.login(fromEmailAddr, password)
+        server.sendmail(fromEmailAddr, toEmailAddrs, message.as_string())
+        print('success')
+        server.quit()
+        emailDateJson = {
+            'Date': str(datetime.date.today()),
+        }
+        with open('emaildate.json', 'w') as f:
+            json.dump(emailDateJson, f)        
+    except smtplib.SMTPException as e:
+        print("error:", e)
