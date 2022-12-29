@@ -6,6 +6,7 @@ import time
 import json
 import datetime
 import smtplib
+import random
 # 发送字符串的邮件
 from email.mime.text import MIMEText
 # 需要 MIMEMultipart 类
@@ -120,7 +121,8 @@ toEmailAddrs = [sys.argv[8]]  # 邮件接受方邮箱地址，注意需要[]包�
 # 邮件内容设置
 message =  MIMEMultipart()
 # 邮件主题
-message['Subject'] = 'ETA ' + str(datetime.date.today())
+subjectR = ['DATONGSHIPPING ETA to ShangHai', 'DATONGSHIPPING ETA to GuangZhou', 'DATONGSHIPPING ETA to ShenZhen', 'DATONGSHIPPING ETA to DaLian']
+message['Subject'] = subjectR[random.randint(0,3)] + str(datetime.date.today())
 # 发送方信息
 message['From'] = fromEmailAddr
 # 接受方信息
