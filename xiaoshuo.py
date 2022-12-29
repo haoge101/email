@@ -121,8 +121,8 @@ toEmailAddrs = [sys.argv[8]]  # 邮件接受方邮箱地址，注意需要[]包�
 # 邮件内容设置
 message =  MIMEMultipart()
 # 邮件主题
-subjectR = ['DATONGSHIPPING ETA to ShangHai', 'DATONGSHIPPING ETA to GuangZhou', 'DATONGSHIPPING ETA to ShenZhen', 'DATONGSHIPPING ETA to DaLian']
-message['Subject'] = subjectR[random.randint(0,3)] + str(datetime.date.today())
+subjectR = ['DATONGSHIPPING ETA to ShangHai ', 'DATONGSHIPPING ETA to GuangZhou ', 'DATONGSHIPPING ETA to ShenZhen ', 'DATONGSHIPPING ETA to DaLian ', 'DATONGSHIPPING AIRLINES REPORT ', 'ANNUAL MEETING OF DATONGSHIPPING NOTICE ', 'DATONGSHIPPING 月度总结 ']
+message['Subject'] = subjectR[random.randint(0,6)] + str(datetime.date.today())
 # 发送方信息
 message['From'] = fromEmailAddr
 # 接受方信息
