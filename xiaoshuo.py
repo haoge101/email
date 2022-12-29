@@ -120,7 +120,7 @@ toEmailAddrs = [sys.argv[8]]  # 邮件接受方邮箱地址，注意需要[]包�
 # 邮件内容设置
 message =  MIMEMultipart()
 # 邮件主题
-message['Subject'] = 'ETA'
+message['Subject'] = 'ETA ' + str(datetime.date.today())
 # 发送方信息
 message['From'] = fromEmailAddr
 # 接受方信息
