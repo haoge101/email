@@ -206,7 +206,7 @@ if content:
     # 构造附件
     att2 = MIMEText(content, 'base64', 'utf-8')
     att2['Content-type'] = 'application/octet-stream'
-    att2['Content-Disposition'] = 'attachment; filename="news.html"'
+    att2['Content-Disposition'] = 'attachment; filename="news.zip"'
     message.attach(att2)   
 
 if fileExist:
